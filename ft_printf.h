@@ -6,15 +6,16 @@
 #include <unistd.h>
 typedef struct		s_flags
 {
-    int     z;  // zero 
-    int     w;  // width  
-    int     p;  // point
-    int     l;  // lenght
-    int     lv; // lenght of value
-    int     ls; // left sapces
-    int     lz; // left zeros
-    int     rs; // right sapces
-    char    *f; // format
+    int     z;      // zero 
+    int     w;      // width  
+    int     p;      // point
+    int     is_p;   // point exit
+    int     l;      // lenght
+    int     lv;     // lenght of value
+    int     ls;     // left sapces
+    int     lz;     // left zeros
+    int     rs;     // right sapces
+    char    *f;     // format
 }					t_f;
 # define abs(value) (value < 0 ? -value : value)
 

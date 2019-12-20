@@ -39,6 +39,11 @@ void    flags_number(t_f *f, int n)
             f->rs += abs(f->w) - f->lv;
         f->lv += abs(f->w) - f->lv;
     }
+    // if (f->is_p && f->p == 0 && f->w > 0)
+    //      f->ls = f->w;
+    // else if (f->w < 0)
+    //     f->rs = abs(f->w);
+    
 }
 
 void    flags_fill(va_list *ap, t_f *f)
@@ -65,10 +70,11 @@ void    flags_fill(va_list *ap, t_f *f)
         (f->f)++;
     if (*(f->f) == '*')
         f->w = va_arg(*ap, int);
-    else if (!ft_is_format(*f->f) && !(*(f->f) != '.'))
+    else if (!ft_is_format(*f->f) && (*(f->f) != '.'))
         f->w = ft_atoi((*f).f) * neg;
     while (*(f->f) != '.' && !ft_is_format(*f->f))
         f->f++;
+    f->is_p = (*(f->f) == '.' ? 1 : 0);
     if (*(f->f + 1) == '*' && *(f->f ) == '.')
         f->p = va_arg(*ap, int);
     else if (*(f->f ) == '.')
@@ -82,6 +88,7 @@ void    flags_reset(t_f *f)
     (*f).z = 0;
     (*f).w = 0;
     (*f).p = 0;
+    (*f).is_p = 0;
     (*f).ls = 0;
     (*f).lz = 0;
     (*f).rs = 0;

@@ -2,7 +2,7 @@ C = gcc
 FLAG = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
-SRC = 
+SRC = ft_printf.c ft_printf_utils.c flags_handler.c numbers_handler.c numbers_utils.c 
 
 OBJ = $(SRC:.c=.o)
 

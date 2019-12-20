@@ -13,6 +13,7 @@ void    print_int(va_list *ap, t_f *f)
 	if (n < 0)
 		write(1, "-", 1);
 	print_s_or_z(f->lz, '0');
+	// if (!(f->is_p && f->p == 0 && n == 0))
     ft_putnbr(abs(n));
     print_s_or_z(f->rs, ' ');
     f->l += f->lv;
