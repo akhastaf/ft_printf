@@ -8,8 +8,8 @@ int     main()
     // printf("%d\n", printf("%*.*d|", -9, 5, -100));
     //printf("%.5%\n");
 	//T("%4.d", 100);
-	ft_printf("%d\n", ft_printf("|%1.0d|", 0));
-	printf("%d\n", printf("|%1.0d|", 0));
+	ft_printf("%d\n", ft_printf("|%.0d|", 0));
+	printf("%d\n", printf("|%.0d|", 0));
     //if (ft_printf("%4d", 100) ==
     //   printf("%4d", 100))
 	//   printf("\n1");

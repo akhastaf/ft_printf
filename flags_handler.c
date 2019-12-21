@@ -39,11 +39,10 @@ void    flags_number(t_f *f, int n)
             f->rs += abs(f->w) - f->lv;
         f->lv += abs(f->w) - f->lv;
     }
-    // if (f->is_p && f->p == 0 && f->w > 0)
-    //      f->ls = f->w;
-    // else if (f->w < 0)
-    //     f->rs = abs(f->w);
-    
+    if (f->is_p && f->p == 0 && f->w > 0 && n == 0)
+          f->ls = f->w;
+    else if (f->w < 0 && n == 0 && f->is_p && f->p == 0)
+         f->rs = abs(f->w);
 }
 
 void    flags_fill(va_list *ap, t_f *f)
