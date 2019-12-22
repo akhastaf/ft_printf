@@ -5,8 +5,9 @@ int     main()
 	
 	unsigned int n;
 
-	n = 100;
+	n = 10;
 
+	//ft_puthex(n, 0);
 	// ft_printf("%",31);
     //printf("%d", ft_printf("test\n"));
     // printf("%d\n", ft_printf("%*.*d|", -9, 5, -100));
@@ -16,8 +17,8 @@ int     main()
 	//ft_printf("|%u|", 100);
 	// ft_printf("%d\n", ft_printf("|%u|", 100)); // ("%u", 100)
 	//printf("%d\n", printf("|%u|", 100));
-	printf("%d\n", ft_printf("|Bla bla %*.3d|", 10, -123));  // ("%-2d", 100)
-	printf("%d\n", printf("|Bla bla %*.3d|", 10, -123));
+	printf("%d\n", ft_printf("|%x|", 0));  // ("%-2d", 100)
+	printf("%d\n", printf("|%x|", 0));
     //if (ft_printf("%4d", 100) ==
     //   printf("%4d", 100))
 	//   printf("\n1");

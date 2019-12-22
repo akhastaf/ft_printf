@@ -21,24 +21,6 @@ void    print_int(va_list *ap, t_f *f)
     f->l += f->lv;
 }
 
-void     ft_putnbr(unsigned int n)
-{
-    char			c;
-
-	if (n <= 9)
-	{
-		c = '0' + n;
-		write(1, &c, 1);
-	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		c = n % 10 + '0';
-		write(1, &c, 1);
-	}
-}
-
-
 void	print_uint(va_list *ap, t_f *f)
 {
 	unsigned int n;
@@ -54,4 +36,22 @@ void	print_uint(va_list *ap, t_f *f)
 		f->l--;
 	print_s_or_z(f->rs, ' ');
     f->l += f->lv;
+}
+
+void	print_hex(va_list *ap, t_f *f, int maj)
+{
+	unsigned int n;
+
+	n = va_arg(*ap, unsigned int);
+	f->lv = count_hex(n);
+	flags_number(&(*f), n, 1);
+	print_s_or_z(f->ls, ' ');
+	print_s_or_z(f->lz, '0');
+	if (!(f->is_p && f->p == 0 && n == 0))
+		ft_puthex(n, maj);
+	else if (!f->w)
+		f->l--;
+	print_s_or_z(f->rs, ' ');
+    f->l += f->lv;
+
 }

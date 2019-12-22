@@ -120,7 +120,7 @@ void    flags_reset(t_f *f)
 
 int     ft_is_format(char f)
 {
-   if (f == 'd' || f == 'i' || f == 'u' || f == 'x' || f == 'X' || f == 'p' || f == 's' || f == 'c')
+   if (f == 'd' || f == 'i' || f == 'u' || f == 'x' || f == 'X' || f == 'p' || f == 's' || f == 'c' || f == '%')
         return (1);
     return (0);
 }

@@ -35,8 +35,8 @@ void    format_handler(va_list *ap, t_f *f)
     flags_fill(ap, &(*f));
     if (*(f->f) == 'd' || *(f->f) == 'i') 
         print_int(ap, &(*f));
-     /*else if (*f->f == 'x' || *f->f == 'X')
-        (*f->f == 'x' ? print_hex(&ap, &f, 0) : print_hex(&ap, &f, 1)); */  
+    else if (*f->f == 'x' || *f->f == 'X')
+        (*f->f == 'x' ? print_hex(ap, &(*f), 0) : print_hex(ap, &(*f), 1));
     else if (*(f->f) == 'u')
         print_uint(ap, &(*f));
     /*else if (*f->f == 'p')
@@ -45,6 +45,10 @@ void    format_handler(va_list *ap, t_f *f)
         print_str(ap, &(*f));
     else if (*f->f == 'c')
         print_char(ap, &(*f));
+    /*else if (*f->f == '%')
+        print_percent(ap, &(*f));*/
+    
+    
      
     f->f++;
 }
