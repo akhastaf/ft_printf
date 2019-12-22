@@ -8,7 +8,7 @@ void    print_int(va_list *ap, t_f *f)
     f->lv = count_int(abs(n));
 	if (n < 0)
 		f->lv++;
-    flags_number(&(*f), n);
+    flags_number(&(*f), abs(n), n < 0 ? -1 : 1);
     print_s_or_z(f->ls, ' ');
 	if (n < 0)
 		write(1, "-", 1);
@@ -20,7 +20,6 @@ void    print_int(va_list *ap, t_f *f)
 	print_s_or_z(f->rs, ' ');
     f->l += f->lv;
 }
-
 
 void     ft_putnbr(unsigned int n)
 {
@@ -37,4 +36,22 @@ void     ft_putnbr(unsigned int n)
 		c = n % 10 + '0';
 		write(1, &c, 1);
 	}
+}
+
+
+void	print_uint(va_list *ap, t_f *f)
+{
+	unsigned int n;
+
+	n = va_arg(*ap, unsigned int);
+	f->lv = count_int(n);
+	flags_number(&(*f), n, 1);
+	print_s_or_z(f->ls, ' ');
+	print_s_or_z(f->lz, '0');
+	if (!(f->is_p && f->p == 0 && n == 0))
+    	ft_putnbr(n);
+	else if (!f->w)
+		f->l--;
+	print_s_or_z(f->rs, ' ');
+    f->l += f->lv;
 }

@@ -1,16 +1,13 @@
 #include "ft_printf.h"
 
-void    flags_number(t_f *f, int n)
+void    flags_number(t_f *f, unsigned int n, int neg)
 {
     if (f->p > 0 && f->p > f->lv)
     {
-        if (n < 0)
-        {
-            f->lz = f->p - f->lv + 1;
+        if (neg < 0)
             f->l++;
-        }
-        else
-            f->lz = f->p - f->lv;
+        
+        f->lz = f->p - f->lv + (neg < 0 ? 1 : 0);
         f->lv += f->p - f->lv;
     }
     if (f->z && abs(f->z) > f->lv && f->p > 0)
@@ -28,7 +25,7 @@ void    flags_number(t_f *f, int n)
     }
     if (f->w && abs(f->w) > f->lv)
     {
-        if (f->p > 0 && n < 0)
+        if (f->p > 0 && neg < 0)
         {
             f->lv++;
             f->l--;
@@ -43,6 +40,33 @@ void    flags_number(t_f *f, int n)
           f->ls = f->w;
     else if (f->w < 0 && n == 0 && f->is_p && f->p == 0)
          f->rs = abs(f->w);
+}
+
+void    flags_string(t_f *f, char *s)
+{
+    f->lv = ft_strlen(s);
+    if (f->is_p && f->p < 0)
+        f->lv = ft_strlen(s);
+    else if (f->is_p && f->p >= 0)
+        f->lv = (f->p < ft_strlen(s) ? f->p : (int)ft_strlen(s));
+    if (abs(f->w) > f->lv)
+    {
+        if (f->w > 0)
+            f->ls = f->w - f->lv;
+        else
+            f->rs = abs(f->w) - f->lv;
+    }
+}
+
+void    flags_char(t_f *f)
+{
+    if (abs(f->w) > f->lv)
+    {
+        if (f->w > 0)
+            f->ls = f->w - 1;
+        else
+            f->rs = abs(f->w) - 1;
+    }
 }
 
 void    flags_fill(va_list *ap, t_f *f)
@@ -96,7 +120,7 @@ void    flags_reset(t_f *f)
 
 int     ft_is_format(char f)
 {
-   if (f == 'd' || f == 'i' || f == 'x' || f == 'X' || f == 'p' || f == 's' || f == 'c')
+   if (f == 'd' || f == 'i' || f == 'u' || f == 'x' || f == 'X' || f == 'p' || f == 's' || f == 'c')
         return (1);
     return (0);
 }
