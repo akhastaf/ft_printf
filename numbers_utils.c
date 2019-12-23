@@ -15,7 +15,7 @@ int     count_int(unsigned int n)
     return (i);
 }
 
-int     count_hex(unsigned int n)
+int     count_hex(unsigned long n)
 {
     int i;
 
@@ -47,7 +47,7 @@ void     ft_putnbr(unsigned int n)
 	}
 }
 
-void    ft_puthex(unsigned int n, int maj)
+void    ft_puthex(unsigned long n, int maj)
 {
     char    number[20];
     int     i;

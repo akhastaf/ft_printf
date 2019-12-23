@@ -24,26 +24,33 @@ void    format_handler(va_list *ap, t_f *f);
 
 // numbers_utils.c
 int     count_int(unsigned int n);
-int     count_hex(unsigned int n);
+int     count_hex(unsigned long n);
 void    ft_putnbr(unsigned int n);
-void    ft_puthex(unsigned int n, int maj);
+void    ft_puthex(unsigned long n, int maj);
 
 
 // flags_handler.c
-void    flags_number(t_f *f, unsigned int n, int neg);
+void    flags_number(t_f *f, unsigned long n, int neg);
 void    flags_fill(va_list *ap, t_f *f);
 void    flags_reset(t_f *f);
 void    flags_string(t_f *f, char *s);
 void    flags_char(t_f *f);
+void    flags_percent(t_f *f);
+
 
 // numbers_handler.c
 void    print_int(va_list *ap, t_f *f);
 void	print_uint(va_list *ap, t_f *f);
+void	print_hex(va_list *ap, t_f *f, int maj);
+void	print_pointer(va_list *ap, t_f *f);
 
 // strnigs_handler.c
 void    print_str(va_list *ap, t_f *f);
-void    ft_putnstr(char *s, int n);
 void    print_char(va_list *ap, t_f *f);
+void    print_percent(t_f *f);
+
+// strigs_utils.c
+void    ft_putnstr(char *s, int n);
 void    ft_putchar(char c);
 
 // ft_printf_utils.c
@@ -51,7 +58,6 @@ int		ft_atoi(const char *str);
 int		ft_strlen(char *str);
 void	print_s_or_z(int n, char c);
 int     ft_is_format(char f);
-void	print_hex(va_list *ap, t_f *f, int maj);
 
 
 #endif

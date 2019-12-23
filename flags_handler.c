@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void    flags_number(t_f *f, unsigned int n, int neg)
+void    flags_number(t_f *f, unsigned long n, int neg)
 {
     if (f->p > 0 && f->p > f->lv)
     {
@@ -69,6 +69,29 @@ void    flags_char(t_f *f)
     }
 }
 
+void    flags_percent(t_f *f)
+{
+    f->lv = 1;
+    if (f->is_p && f->z < 0)
+    {
+        f->rs = abs(f->z) - f->lv;
+        f->lv += f->rs;
+    }
+    else if (f->is_p && f->z > 0)
+    {
+        f->lz = f->z - f->lv;
+        f->lv += f->lz;
+    }
+    if (abs(f->w) > f->lv)
+    {
+        if (f->w > 0)
+            f->ls = f->w - f->lv;
+        else
+            f->rs = abs(f->w) - f->lv;
+        f->lv += abs(f->w) - f->lv;
+    }
+}
+
 void    flags_fill(va_list *ap, t_f *f)
 {
     int neg;
@@ -86,9 +109,7 @@ void    flags_fill(va_list *ap, t_f *f)
             f->z = ft_atoi(f->f);
     }
     if (*(f->f) == '-')
-    {
         neg = -1;
-    }
     while (*(f->f) == '-' && !ft_is_format(*f->f))
         (f->f)++;
     if (*(f->f) == '*')

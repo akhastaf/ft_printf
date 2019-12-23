@@ -3,9 +3,9 @@
 int     main()
 {
 	
-	unsigned int n;
+	// unsigned int n;
 
-	n = 10;
+	// n = 10;
 
 	//ft_puthex(n, 0);
 	// ft_printf("%",31);
@@ -17,8 +17,8 @@ int     main()
 	//ft_printf("|%u|", 100);
 	// ft_printf("%d\n", ft_printf("|%u|", 100)); // ("%u", 100)
 	//printf("%d\n", printf("|%u|", 100));
-	printf("%d\n", ft_printf("|%x|", 0));  // ("%-2d", 100)
-	printf("%d\n", printf("|%x|", 0));
+	// printf("%d\n", ft_printf("|%x|", 0));  // ("%-2d", 100)
+	// printf("%d\n", printf("|%x|", 0));
     //if (ft_printf("%4d", 100) ==
     //   printf("%4d", 100))
 	//   printf("\n1");
@@ -38,6 +38,7 @@ int     main()
 	// write(1, "123 ",3);
 	// ft_printf("%s", NULL);
 	//printf("%d\n", printf("%2s", "ABC"));
-
+	printf("%d\n", ft_printf("|%p|", (void *)UINT64_MAX));
+	printf("%d\n", printf("|%p|", (void *)UINT64_MAX));
     return 0;
 }

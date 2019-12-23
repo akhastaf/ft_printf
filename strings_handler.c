@@ -27,16 +27,12 @@ void    print_char(va_list *ap, t_f *f)
     f->l += f->rs + f->ls + 1;
 }
 
-void    ft_putnstr(char *s, int n)
+void    print_percent(t_f *f)
 {
-    int i;
 
-    i = 0;
-    while (i < n)
-        write(1, &s[i++], 1);
-}
-
-void    ft_putchar(char c)
-{
-    write(1, &c, 1);
+    flags_percent(&(*f));
+    print_s_or_z(f->ls, ' ');
+    ft_putchar('%');
+    print_s_or_z(f->rs, ' ');
+    f->l += f->rs + f->ls + 1;
 }

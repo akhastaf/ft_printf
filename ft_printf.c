@@ -39,16 +39,13 @@ void    format_handler(va_list *ap, t_f *f)
         (*f->f == 'x' ? print_hex(ap, &(*f), 0) : print_hex(ap, &(*f), 1));
     else if (*(f->f) == 'u')
         print_uint(ap, &(*f));
-    /*else if (*f->f == 'p')
-        print_pointer(&ap, &f);*/
+    else if (*f->f == 'p')
+        print_pointer(ap, &(*f));
     else if (*f->f == 's')
         print_str(ap, &(*f));
     else if (*f->f == 'c')
         print_char(ap, &(*f));
-    /*else if (*f->f == '%')
-        print_percent(ap, &(*f));*/
-    
-    
-     
+    else if (*f->f == '%')
+        print_percent(&(*f));
     f->f++;
 }
