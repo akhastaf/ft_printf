@@ -38,7 +38,7 @@ int     main()
 	// write(1, "123 ",3);
 	// ft_printf("%s", NULL);
 	//printf("%d\n", printf("%2s", "ABC"));
-	printf("%d\n", ft_printf("|%p|", (void *)UINT64_MAX));
-	printf("%d\n", printf("|%p|", (void *)UINT64_MAX));
+	printf("%d\n", ft_printf("TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%", 7,5, "ABC",15,0));
+	printf("%d\n", printf("TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%", 7,5, "ABC",15,0));
     return 0;
 }
