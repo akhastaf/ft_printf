@@ -6,17 +6,17 @@
 /*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:46:42 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/23 15:57:35 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/25 21:03:29 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
-	int     i;
+	int		i;
 	va_list ap;
-	t_f     f;
+	t_f		f;
 
 	i = 0;
 	va_start(ap, format);
@@ -37,14 +37,14 @@ int     ft_printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
-	return f.l;
+	return (f.l);
 }
 
-void    format_handler(va_list *ap, t_f *f)
+void	format_handler(va_list *ap, t_f *f)
 {
 	flags_reset(&(*f));
 	flags_fill(ap, &(*f));
-	if (*(f->f) == 'd' || *(f->f) == 'i') 
+	if (*(f->f) == 'd' || *(f->f) == 'i')
 		print_int(ap, &(*f));
 	else if (*f->f == 'x' || *f->f == 'X')
 		(*f->f == 'x' ? print_hex(ap, &(*f), 0) : print_hex(ap, &(*f), 1));

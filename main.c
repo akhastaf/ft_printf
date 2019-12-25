@@ -38,7 +38,10 @@ int     main()
 	// write(1, "123 ",3);
 	// ft_printf("%s", NULL);
 	//printf("%d\n", printf("%2s", "ABC"));
-	printf("%d\n", ft_printf("TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%", 7,5, "ABC",15,0));
-	printf("%d\n", printf("TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%", 7,5, "ABC",15,0));
+	//  printf("%d\n", ft_printf("Bla bla %x", 0));
+	//  printf("%d\n", printf("Bla bla %x", 0));
+
+	printf("%d\n", ft_printf("%0----00000-0-*%|", 9));
+    printf("%d\n",    printf("%0----00000-0-*%|", 9));
     return 0;
 }

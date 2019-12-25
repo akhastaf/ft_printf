@@ -6,22 +6,22 @@
 /*   By: akhastaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:49:08 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/23 15:49:10 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/25 21:21:44 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_putnstr(char *s, int n)
+void	ft_putnstr(char *s, int n)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (i < n)
-        write(1, &s[i++], 1);
+	i = 0;
+	while (i < n)
+		write(1, &s[i++], 1);
 }
 
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
 }

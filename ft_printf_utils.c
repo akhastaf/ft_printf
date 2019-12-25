@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhastaf <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:48:01 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/23 15:48:03 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/25 21:09:42 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_strlen(char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 void	print_s_or_z(int n, char c)
@@ -56,4 +56,12 @@ void	print_s_or_z(int n, char c)
 		write(1, &c, 1);
 		n--;
 	}
+}
+
+int		ft_is_format(char f)
+{
+	if (f == 'd' || f == 'i' || f == 'u' || f == 'x' || f == 'X'
+			|| f == 'p' || f == 's' || f == 'c' || f == '%')
+		return (1);
+	return (0);
 }

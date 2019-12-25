@@ -1,8 +1,8 @@
 C = gcc
-FLAG = -Wall -Wextra -Werror -g
+FLAG = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_printf_utils.c flags_handler.c numbers_handler.c numbers_utils.c strings_handler.c strings_utils.c
+SRC = ft_printf.c ft_printf_utils.c flags_handler.c flags_utils.c numbers_handler.c numbers_utils.c strings_handler.c strings_utils.c
 
 OBJ = $(SRC:.c=.o)
 
