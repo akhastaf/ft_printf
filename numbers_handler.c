@@ -6,7 +6,7 @@
 /*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:48:45 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/25 21:14:36 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/25 21:53:48 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	print_int(va_list *ap, t_f *f)
 	int n;
 
 	n = va_arg(*ap, int);
-	f->lv = count_int(abs(n)) + (n < 0 ? 1 : 0);
+	f->lv = count_int(ABS(n)) + (n < 0 ? 1 : 0);
 	if (f->is_p && !f->p && !n)
 		f->lv--;
-	flags_number(&(*f), abs(n), n < 0 ? -1 : 1);
+	flags_number(&(*f), ABS(n), n < 0 ? -1 : 1);
 	print_s_or_z(f->ls, ' ');
 	if (n < 0)
 		write(1, "-", 1);
 	print_s_or_z(f->lz, '0');
 	if (!(f->is_p && f->p == 0 && n == 0))
-		ft_putnbr(abs(n));
+		ft_putnbr(ABS(n));
 	else if (!f->w && n < 0)
 		f->l--;
 	print_s_or_z(f->rs, ' ');

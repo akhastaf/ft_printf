@@ -6,7 +6,7 @@
 /*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:48:52 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/25 21:18:05 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/26 17:27:59 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_puthex(unsigned long n, int maj)
 		i++;
 	}
 	number[i] = '\0';
+	i--;
 	while (i >= 0)
 		write(1, &number[i--], 1);
 }
