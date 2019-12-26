@@ -6,7 +6,7 @@
 /*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:48:30 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/25 21:22:41 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/26 19:43:02 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	get_width(va_list *ap, t_f *f)
 	while (*(f->f) == '-' && !ft_is_format(*f->f))
 		(f->f)++;
 	if (*(f->f) == '*')
-		f->w = va_arg(*ap, int);
+		f->w = va_arg(*ap, int) * neg;
 	else if (!ft_is_format(*f->f) && (*(f->f) != '.'))
 		f->w = ft_atoi((*f).f) * neg;
 }
