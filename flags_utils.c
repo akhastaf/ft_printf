@@ -6,7 +6,7 @@
 /*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:48:30 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/26 19:43:02 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/27 16:40:47 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	flags_reset(t_f *f)
 {
 	(*f).z = 0;
 	(*f).w = 0;
+	(*f).sw = 1;
 	(*f).p = 0;
 	(*f).is_p = 0;
 	(*f).ls = 0;
@@ -56,9 +57,14 @@ void	get_width(va_list *ap, t_f *f)
 	while (*(f->f) == '-' && !ft_is_format(*f->f))
 		(f->f)++;
 	if (*(f->f) == '*')
-		f->w = va_arg(*ap, int) * neg;
+	{
+		f->w = va_arg(*ap, int);
+		if (f->w > 0)
+			f->w *= neg;
+	}
 	else if (!ft_is_format(*f->f) && (*(f->f) != '.'))
 		f->w = ft_atoi((*f).f) * neg;
+	f->w *= f->sw;
 }
 
 void	get_point(va_list *ap, t_f *f)

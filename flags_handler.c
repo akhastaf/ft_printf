@@ -6,7 +6,7 @@
 /*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:48:12 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/25 21:53:08 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/27 16:42:14 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	flags_number(t_f *f, unsigned long n, int neg)
 
 void	h_flags_number(t_f *f, int neg)
 {
-	if (f->p > 0 && f->p > f->lv)
+	if (f->p > 0 && f->p + (neg < 0 ? 1 : 0) > f->lv)
 	{
 		f->lz = f->p - f->lv + (neg < 0 ? 1 : 0);
 		f->lv += f->lz;

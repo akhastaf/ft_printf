@@ -6,7 +6,7 @@
 /*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:46:42 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/25 21:03:29 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/27 16:35:32 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_printf(const char *format, ...)
 void	format_handler(va_list *ap, t_f *f)
 {
 	flags_reset(&(*f));
+	skip_percent(&(*f));
 	flags_fill(ap, &(*f));
 	if (*(f->f) == 'd' || *(f->f) == 'i')
 		print_int(ap, &(*f));

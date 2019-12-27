@@ -6,7 +6,7 @@
 /*   By: akhastaf <akhastaf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 15:51:25 by akhastaf          #+#    #+#             */
-/*   Updated: 2019/12/25 21:59:51 by akhastaf         ###   ########.fr       */
+/*   Updated: 2019/12/27 16:39:26 by akhastaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct		s_flags
 {
 	int		z;
 	int		w;
+	int		sw;
 	int		p;
 	int		is_p;
 	int		l;
@@ -58,6 +59,7 @@ void				print_char(va_list *ap, t_f *f);
 void				print_percent(t_f *f);
 void				ft_putnstr(char *s, int n);
 void				ft_putchar(char c);
+void				skip_percent(t_f *f);
 int					ft_atoi(const char *str);
 int					ft_strlen(char *str);
 void				print_s_or_z(int n, char c);
